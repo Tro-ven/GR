@@ -287,52 +287,5 @@
             <p>Join our Discord: <a href="https://discord.gg/qYaAnZJyyE">https://discord.gg/qYaAnZJyyE</a></p>
         </div>
     </section>
-
-<!-- Leaderboard Section -->
-<section class="leaderboard">
-    <div class="container">
-        <h2>Points Leaderboard</h2>
-        <table id="leaderboardTable">
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Player</th>
-                    <th>Points</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Data will be populated here dynamically -->
-            </tbody>
-        </table>
-    </div>
-</section>
-
-<!-- JavaScript to Fetch Leaderboard Data -->
-<script>
-    async function fetchLeaderboard() {
-        try {
-            const response = await fetch('https://your-backend-api.com/leaderboard');
-            const data = await response.json();
-
-            const tableBody = document.querySelector('#leaderboardTable tbody');
-            tableBody.innerHTML = ''; // Clear existing data
-
-            data.forEach((entry, index) => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${index + 1}</td>
-                    <td>${entry.username}</td>
-                    <td>${entry.points}</td>
-                `;
-                tableBody.appendChild(row);
-            });
-        } catch (error) {
-            console.error('Error fetching leaderboard data:', error);
-        }
-    }
-
-    // Fetch leaderboard data on page load
-    fetchLeaderboard();
-</script>
 </body>
 </html>
